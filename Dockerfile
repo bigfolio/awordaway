@@ -1,12 +1,2 @@
-
-FROM centos:centos6
-RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-RUN yum install -y nodejs  #
-# Define working directory.
-COPY . /src
-WORKDIR /src
-RUN npm install
-
-EXPOSE 3000 8020
-# Define default command.
-CMD ["node", "server.js"]
+FROM ubuntu:22.04
+RUN ["/bin/bash", "-c", "apt update && apt install curl -y && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && source ~/.nvm/nvm.sh && nvm install --lts && npm install -g npm"]

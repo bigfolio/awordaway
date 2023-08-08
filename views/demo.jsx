@@ -461,14 +461,7 @@ export class Demo extends Component {
           </div>
         </div>
 
-        <div className="new_demo_notification">
-          <Alert type="info" color="blue">
-            {NEW_DEMO_NOTIFICATION}
-            <a href="https://www.ibm.com/demos/live/speech-to-text/self-service/home" target="blank">
-              here.
-            </a>
-          </Alert>
-        </div>
+        
 
         <h2 className="base--h2">Transcribe Audio</h2>
 
@@ -478,21 +471,9 @@ export class Demo extends Component {
           <li className="base--li">Play one of the sample audio files.*</li>
         </ul>
 
-        <div className="smalltext">
-          *Both US English broadband sample audio files are covered under the
-          Creative Commons license.
-        </div>
+       
 
-        <div style={{
-          paddingRight: '3em',
-          paddingBottom: '2em',
-        }}
-        >
-          The returned result includes the recognized text, {' '}
-          <a className="base--a" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-output#word_alternatives">word alternatives</a>, {' '}
-          and <a className="base--a" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-output#keyword_spotting">spotted keywords</a>. {' '}
-          Some models can <a className="base--a" href="https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-output#speaker_labels">detect multiple speakers</a>; this may slow down performance.
-        </div>
+
         <div className="flex setup">
           <div className="column">
 
