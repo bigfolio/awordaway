@@ -1,6 +1,6 @@
 FROM node:12.14.1
 
-rm -rf node_modules package-lock.json
+RUN rm -rf node_modules package-lock.json
 
 WORKDIR /usr/src/app
 COPY package*.json ./
