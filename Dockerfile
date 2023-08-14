@@ -1,12 +1,11 @@
-FROM node:12.18.1
- 
-WORKDIR /app
- 
-COPY package.json package.json
-COPY package-lock.json package-lock.json
- 
+FROM centos:centos6
+RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+RUN yum install -y nodejs  #
+# Define working directory.
+COPY . /src
+WORKDIR /src
 RUN npm install
- 
-COPY . .
- 
-CMD [ "node", "server.js" ]
+
+EXPOSE 3000 8020
+# Define default command.
+CMD ["node", "server.js"]
