@@ -1,21 +1,12 @@
-FROM node:10.15.3 as production
+FROM node:12.18.1
+ 
 WORKDIR /app
-
-COPY package*.json ./
+ 
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+ 
 RUN npm install
-
+ 
 COPY . .
-
-RUN npm run build
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
-
-
-FROM production as dev
-
-COPY docker/dev-entrypoint.sh /usr/local/bin/
-
-ENTRYPOINT ["dev-entrypoint.sh"]
-CMD ["npm", "run", "watch"]
+ 
+CMD [ "node", "server.js" ]
