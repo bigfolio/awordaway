@@ -1,7 +1,14 @@
-version: '3.8'
+version: "3.7"
 
 services:
-  service-1:
-    build: ./
-    volumes:
-      - ./:/usr/src/app
+    web:
+        build:
+            target: dev
+            context: .
+        volumes:
+            - .:/app:delegated
+        ports:
+            - "3000:3000"
+        restart: always
+        environment:
+            NODE_ENV: dev
