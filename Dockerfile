@@ -1,2 +1,8 @@
-COPY ./client/package*.json ./
+FROM node:12.14.1
+
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
+COPY . .
+
+CMD ["node", "index.js"]
