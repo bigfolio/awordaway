@@ -1,2 +1,5 @@
-FROM ubuntu:22.04
-RUN ["/bin/bash", "-c", "apt update && apt install curl -y && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && source ~/.nvm/nvm.sh && nvm install --lts && npm install -g npm"]
+FROM node:12-alpine
+
+WORKDIR /usr/src/app
+
+CMD [ -d "node_modules" ] && npm run start || npm ci && npm run start
