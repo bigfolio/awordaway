@@ -2,7 +2,7 @@ FROM node:10.15.3 as production
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install && npm install --only=dev
+RUN npm install
 
 COPY . .
 
