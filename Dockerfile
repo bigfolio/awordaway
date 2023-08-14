@@ -1,9 +1,5 @@
-# set working directory 
+FROM node:12-alpine
+
 WORKDIR /usr/src/app
 
-# install node_modules
-ADD package.json /usr/src/app/package.json
-RUN npm install
-
-# copy codebase to docker codebase
-ADD . /usr/src/app
+CMD [ -d "node_modules" ] && npm run start || npm ci && npm run start
