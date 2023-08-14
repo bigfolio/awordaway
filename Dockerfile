@@ -1,12 +1,5 @@
-FROM node:12.14.1
-
-RUN rm -rf node_modules package-lock.json
+FROM node:12-alpine
 
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
 
-RUN npm start
-COPY . .
-
-CMD ["node", "index.js"]
+CMD [ -d "node_modules" ] && npm run start || npm ci && npm run start
